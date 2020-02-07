@@ -1,5 +1,9 @@
 homepage: "https://www.propelmedia.com"
 documentation: "https://propelmedia.zendesk.com/hc/en-us/articles/360042518934"
 versions:
+  #Newest version
+  - sha: 3dca15629ac880bdcfc1b441d689af6851354bfa
+    changeNotes: added encodeUriComponent & put data.gtmOnFailure() from line 60 in else statement
+  #Older Version
   - sha: 66c4a36d866a52ea85a097a7a8eb47f186e148e6
     changeNotes: Initial release.

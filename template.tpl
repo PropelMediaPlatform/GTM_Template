@@ -49,15 +49,17 @@ ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 
 const query = require('queryPermission');
 const iframe = require('injectHiddenIframe');
+const encodeUriComponent = require('encodeUriComponent');
+
 if (data.trackingPixelID == '')
   data.gtmOnFailure();
 
-const url = 'https://tracking.propelmedia.com/?id=' + data.trackingPixelID + '&fetch=2&value=' + data.commission;
+const url = 'https://tracking.propelmedia.com/?id=' + encodeUriComponent(data.trackingPixelID) + '&fetch=2&value=' + encodeUriComponent(data.commission);
 if (query('inject_hidden_iframe', url)) {
   iframe(url, data.gtmOnSuccess, data.gtmOnFailure);
+} else {
+  data.gtmOnFailure();
 }
-
-data.gtmOnFailure();
 
 
 ___WEB_PERMISSIONS___
@@ -99,6 +101,4 @@ scenarios: []
 
 ___NOTES___
 
-Created on 2/5/2020, 7:56:56 AM
-
-
+Created on 2/6/2020, 8:26:35 PM
